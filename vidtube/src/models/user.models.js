@@ -27,13 +27,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      default: "Anonymous User", // Default value
     },
     avatar: {
-      type: String, // cloudinary URL
+      type: String, // Cloudinary URL
       required: true,
     },
     coverImage: {
-      type: String, // cloudinary URL
+      type: String, // Cloudinary URL
     },
     watchHistory: [
       {
@@ -53,7 +54,7 @@ userSchema.pre("save", async function (next) {
     }
     next();
   } catch (error) {
-    next(error); // Pass error to the next middleware
+    next(error);
   }
 });
 
